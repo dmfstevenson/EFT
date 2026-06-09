@@ -129,6 +129,7 @@ wrangler deploy
 
 ### Frontend (Cloudflare Pages)
 
+**Option 1: Manual Deployment**
 1. Build the frontend:
 ```bash
 cd frontend
@@ -140,7 +141,14 @@ npm run build
 npx wrangler pages deploy dist
 ```
 
-Or connect your GitHub repository to Cloudflare Pages for automatic deployments.
+**Option 2: GitHub Integration (Recommended)**
+1. Connect your GitHub repository to Cloudflare Pages
+2. In Cloudflare Pages settings, configure:
+   - **Build command**: `cd frontend && npm install && npm run build`
+   - **Build output directory**: `frontend/dist`
+   - **Root directory**: `/` (repository root)
+
+**Important**: Cloudflare Pages should only deploy the React frontend. The `.cloudflare/pages.json` file in the repository root configures this. Do not configure Cloudflare Pages to deploy the Go backend - that should be deployed separately to Cloudflare Workers.
 
 ## API Endpoints
 
