@@ -1,0 +1,14 @@
+name = "etf-recommendation-api"
+main = "cmd/api/main.go"
+compatibility_date = "2024-01-01"
+
+[vars]
+ENVIRONMENT = "production"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "etf_recommendations"
+database_id = "your-database-id"
+
+[triggers]
+crons = ["0 18 * * *"] # Run daily at 6:00 PM UTC (2:00 AM PHT)
