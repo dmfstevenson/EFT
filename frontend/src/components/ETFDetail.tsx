@@ -155,7 +155,7 @@ export function ETFDetail({ symbol, onClose }: ETFDetailProps) {
                   }}
                   itemStyle={{ color: '#F3F4F6' }}
                   labelStyle={{ color: '#9CA3AF' }}
-                  formatter={(value: number) => [`₱${value.toFixed(2)}`, 'Price']}
+                  formatter={(value: number, name: string) => [`₱${value.toFixed(2)}`, name]}
                 />
                 <Line 
                   type="monotone" 
